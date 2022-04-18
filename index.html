@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<h1>Javascript Cheat Sheet</h1>
+	<div class="main-wrapper">
+		<div id="output" class="content-wrapper">
+			<h2>Javascript Output</h2>
+			<div class="content">
+				<div>
+					<code>document.getElementById("output_1").innerHTML = "Hello World";</code>
+					<p>&#8594 Hello World</p>
+				</div>
+				<div>
+					<code>document.write("Hello World");</code>
+					<p>&#8594 Hello World</p>
+				</div>
+				<div>
+					<code>window.alert("Hello World");</code>
+					<p>&#8594 <button class="alert">Click me!</button></p>
+				</div>
+				<div>
+					<code>console.log("Hello World");</code>
+					<p>&#8594 <button class="consoleLog">Click me!</button> (check on console)</p>
+				</div>
+				<div>
+					<code>window.print()</code>
+					<p>&#8594 <button class="print">Click me to print page</button></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="comment" class="content-wrapper">
+			<h2>Comment</h2>
+			<div class="content">
+				<p>Single line comment &#8594 <code>// comment</code></p>
+				<p>Multi line comment &#8594 <code>/* comment */</code></p>
+			</div>
+		</div>
+
+		<div id="variable" class="content-wrapper">
+			<h2>Variable</h2>
+			<div class="content">
+				<code>var <var>myName</var> = "John";</code>
+				<br>
+				<code>let <var>myAge</var> = 22;</code>
+				<br>
+				<code>const <var>myGender</var> = "Male";</code>
+				<br>
+			</div>
+			<div class="content">
+				<h3 class="var"><var>var</var> vs <var>let</var></h3>
+				<div class="wrapper">
+					<p>Let can't be Redeclared, Var can be Redeclared</p> <br>
+					<span>
+						<p><b>Doesn't work</b></p>
+						<code>
+							let <var>x</var> = 10; 
+							<br>
+							let <var>x</var> = 20;
+						</code>
+					</span>
+					<hr>
+					<span>
+						<p><b>Does work</b></p>
+						<code>
+							var <var>x</var> = 10; 
+							<br>
+							var <var>x</var> = 20;	
+						</code>
+					</span>	
+				</div>
+				<div class="wrapper">
+					<p>Let has Block Scope, Var doesn't have Block Scope </p> <br>
+					<span>
+						<code> let <var>x</var> = 5;
+							<br>
+							// x is 5 here
+							<br>
+							<br>
+							function() {
+							<br>	
+							&#160 let <var>x</var> = 8;
+							<br>
+							// x is 8 here
+							<br>
+							}
+							<br>
+							<br>
+							// x is 5 here
+							<hr>
+						</code>
+					</span>
+					<span>
+						<code> var <var>x</var> = 5;
+							<br>
+							// x is 5 here
+							<br>
+							<br>
+							function() {
+							<br>	
+							&#160 var <var>x</var> = 8;
+							<br>
+							// x is 8 here
+							<br>
+							}
+							<br>
+							<br>
+							// x is 8 here
+						</code>
+					</span>
+				</div>
+				<div class="wrapper">
+					<p>Let must be Declared before use, Var can be use before Declaration (Hoisting)</p> <br>
+					<span>
+						<p><b>This works</b></p>
+						<code>
+							<var>x</var> = 10; 
+							<br>
+							var <var>x</var>;
+						</code>
+						<p><b>But these doesn't work</b></p>
+						<code>
+							<var>x</var> = 10;
+							<br>
+							let <var>x</var>;
+						</code>
+						<p>or</p>
+						<code>
+							<var>x</var> = 10;
+							<br>
+							const <var>x</var>;
+						</code>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="operator" class="content-wrapper">
+			<h2>Javascript Arithmetic Operators</h2>
+			<div class="content">
+				<table>
+					<tr>
+						<th>Operator</th>
+						<th>Example</th>
+						<th>Result</th>
+					</tr>
+					<tr>
+						<td>+</td>
+						<td>2 + 3</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>5 - 2</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>*</td>
+						<td>2 * 3</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>/</td>
+						<td>6 / 2</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>**</td>
+						<td>4 ** 3</td>
+						<td>64</td>
+					</tr>
+					<tr>
+						<td>%</td>
+						<td>11 % 3</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>++</td>
+						<td>3++</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>--</td>
+						<td>3--</td>
+						<td>2</td>
+					</tr>
+				</table>
+			</div>
+
+			<h2>Javascript Assignment Operators</h2>
+			<div class="content">
+				<table>
+					<tr>
+						<th>Operator</th>
+						<th>Example</th>
+						<th>Same As</th>
+					</tr>
+					<tr>
+						<td>=</td>
+						<td>x = y</td>
+						<td>x = y</td>
+					</tr>
+					<tr>
+						<td>+=</td>
+						<td>x += y</td>
+						<td>x = x + y</td>
+					</tr>
+					<tr>
+						<td>-=</td>
+						<td>x -= y</td>
+						<td>x = x - y</td>
+					</tr>
+					<tr>
+						<td>*</td>
+						<td>x *= y</td>
+						<td>x = x * y</td>
+					</tr>
+					<tr>
+						<td>/</td>
+						<td>x /= y</td>
+						<td>x = x / y</td>
+					</tr>
+					<tr>
+						<td>%=</td>
+						<td>x %= y</td>
+						<td>x = x % y</td>
+					</tr>
+					<tr>
+						<td>**=</td>
+						<td>x **= y</td>
+						<td>x = x ** y</td>
+					</tr>
+				</table>
+			</div>
+
+			<h2>Javascript Comparison Operators</h2>
+			<div class="content">
+
+				<table>
+					<tr>
+						<th>Operator</th>
+						<th>Example</th>
+						<th>Result</th>
+					</tr>
+					<tr>
+						<td>==</td>
+						<td>3 == 3</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 == "3"</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 == 5</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td>===</td>
+						<td>3 === 3</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 === "3"</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 === 5</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td>!=</td>
+						<td>3 != 3</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 != "3"</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 != 5</td>
+						<td>true</td>
+					</tr>
+		
+					<tr>
+						<td>!==</td>
+						<td>3 !== 3</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 !== "3"</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 !== 5</td>
+						<td>true</td>
+					</tr>
+		
+					<tr>
+						<td><</td>
+						<td>3 < 5</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>5 < 3</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td>></td>
+						<td>5 > 3</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>3 > 5</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td><=</td>
+						<td>5 <= 5</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>>=</td>
+						<td>5 >= 5</td>
+						<td>true</td>
+					</tr>
+				</table>
+			</div>
+
+			<h2>Javascript Logical Operators</h2>
+			<div class="content">
+
+				<table>
+					<tr>
+						<th>Operator</th>
+						<th>Example</th>
+						<th>Result</th>
+					</tr>
+					<tr>
+						<td>&&</td>
+						<td>(true && true)</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>(true && false)</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>(false && false)</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td>||</td>
+						<td>(true && true)</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>(true && false)</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>(false && false)</td>
+						<td>false</td>
+					</tr>
+		
+					<tr>
+						<td>!</td>
+						<td>!(true)</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>!(false)</td>
+						<td>true</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div id="function" class="content-wrapper">
+			<h2>Function</h2>
+			<div class="content">
+				<div class="wrapper">
+					<h3>Regular Function</h3>
+					<code>function <var>add</var>(a,b) { <br>
+					&#160 return a + b; <br>
+					}</code>
+				</div>
+				<div class="wrapper">
+					<h3>Arrow Function</h3>
+					<code>let <var>add</var> = (a,b) => a + b;</code>
+					<p>or</p>
+					<code>let <var>add</var> = (a,b) => { <br>
+					&#160 return a + b; <br>
+					}</code>
+				</div>
+			</div>
+		</div>
+		
+		<div id="array" class="content-wrapper">
+			<h2>Array</h2>
+			<div class="content">
+				<div class="wrapper">
+					<h3>Creating an Array</h3>
+					<code>const <var>person</var> = ["John, "Mike", "Doe"]</code>
+				</div>
+				<div class="wrapper">
+					<h3>Accessing Array Elements</h3>
+					<code><var>person</var>[0] //John</code>
+				</div>
+				<div class="wrapper">
+					<h3>Changing Array Elements</h3>
+					<code><var>person</var>[1] = "Walter" // ["John", "Walter", "Doe"]</code>
+				</div>
+			</div>
+		</div>
+		
+		<div id="object" class="content-wrapper">
+			<h2>Object</h2>
+			<div class="content">
+				<div class="wrapper">
+					<h3>Creating an Object</h3>
+					<code>const <var>person</var> = {<br>
+					&#160 firstName: "John", <br>
+					&#160 lastName: "Doe", <br>
+					&#160 age: "30" <br>
+					}</code>
+				</div>
+				<div class="wrapper">
+					<h3>Accessing Object Properties</h3>
+					<code><var>person</var>.age //30</code>
+					<p>or</p>
+					<code><var>person</var>["age"] //30</code>
+				</div>
+				<div class="wrapper">
+					<h3>Changing Object Properties</h3>
+					<code><var>person</var>.age = 50;</code>
+					<p>or</p>
+					<code><var>person</var>["age"] = 50 </code>
+				</div>
+				<div class="wrapper">
+					<h3>Object Methods</h3>
+					<code>const <var>person</var> = {<br>
+						&#160 firstName: "John", <br>
+						&#160 lastName: "Doe", <br>
+						&#160 age: "30" <br>
+						&#160 function <var>fullName</var>() { <br>
+							&#160 &#160 return this.firstName + " " + this.lastName; <br>
+						&#160 } <br>
+						}; <br>
+						<br>
+						let <var>friendName</var> = <var>person</var>.fullName(); // returning "John Doe"
+					</code> 
+				</div>
+			</div>
+		</div>
+
+		<div id="if-else" class="content-wrapper">
+			<h2>If Else</h2>
+			<div class="content">
+				<code>
+					If (x > 1) {<br>
+				&#160 console.log("Hello") <br>
+				} else if (x < 1)  { <br>
+				&#160 console.log("Good Morning") <br>
+				} else { <br>
+				&#160 console.log("Good Night") <br>
+				}
+				</code>
+			</div>
+		</div>
+
+		<div id="switch" class="content-wrapper">
+			<h2>Switch</h2>
+			<div class="content">
+				<code>
+					let <var>key</var> = 10; <br>
+					switch(key) { <br>
+					&#160 case 0: <br>
+						&#160 &#160 console.log("key is 0"); <br>
+						&#160 &#160 break; <br>
+					&#160 case 5: <br>
+						&#160 &#160 console.log("key is 5"); <br>
+						&#160 &#160 break; <br>
+					&#160 case 10: <br>
+						&#160 &#160 console.log("key is 10"); <br>
+						&#160 &#160 break; <br>
+					&#160 case 15: <br>
+						&#160 &#160 console.log("key is 15"); <br>
+						&#160 &#160 break; <br>
+					&#160 default: <br>
+						&#160 &#160 console.log("key is not found"); <br>
+						&#160 &#160 break; <br>
+					}
+				</code>
+			</div>
+		</div>
+
+		<div id="for-loop" class="content-wrapper">
+			<h2>For Loop</h2>
+			<div class="content">
+				<code>
+					for (let <var>i</var> = 0; <var>i</var> < arr.length; <var>i</var>++) { <br>
+						&#160 console.log("It is number " + <var>i</var>); <br>
+					}
+				</code>
+			</div>
+		</div>
+
+		<div id="while-loop" class="content-wrapper">
+			<h2>While Loop</h2>
+			<div class="content">
+				<code>
+					let <var>i</var> = 0; <br>
+					while (<var>i</var> < 10) { <br>
+						&#160 console.log("It is number " + <var>i</var>); <br>
+						&#160 <var>i</var>++; <br>
+					}
+				</code>
+			</div>
+		</div>
+
+		<div id="class" class="content-wrapper">
+			<h2>Class</h2>
+			<div class="content">
+				<code>
+					class Car { <br>
+						&#160 constructor(name, year) {<br>
+							&#160 &#160 this.name = name; <br>
+							&#160 &#160 this.year = year; <br>
+						&#160 } <br>
+						&#160 honk() { <br>
+							&#160 &#160 console.log(this.name + " car is honking"); <br>
+						&#160 } <br>
+					} <br> <br>
+					let <var>myCar</var> = new Car("BMW", 2020); <br>
+					<var>myCar</var>.honk(); // BMW car is honking
+				</code>
+			</div>
+		</div>
+	</div>
+	<br><br><br><br><br>
+	<script src="Js-cheat-sheet.js"></script>	
+</body>
+</html>
